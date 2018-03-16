@@ -1,0 +1,25 @@
+.titleList{
+  font-size: 2em;
+  color: $secondary-color;
+  padding: 2%;
+}
+
+.titleList:hover{
+  color: $secondary-hover;
+}
+
+.chip{
+  background-color: $terciary-color;
+  width: 10%;
+  height: 10%;
+}
+
+.userList{
+  display: inline;
+  color:grey;
+}
+
+.flex{
+  display: flex;
+  justify-content: space-evenly;
+}

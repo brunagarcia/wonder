@@ -1,0 +1,10 @@
+/** 
+ *  @file:  www
+ *  @desc:  Start script for starting our application
+ *
+ *  @usage: node bin/www
+*/
+require('../init/dbConnection')
+
+const app = require('../app')
+app.listen(8080)
