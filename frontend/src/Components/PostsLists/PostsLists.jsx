@@ -7,10 +7,11 @@ import '../../Assets/css/style.css';
 class PostLists extends Component {
   render() {
     const postsList = this.props.posts;
-    console.log(postsList);
     let postJSX = postsList.map((post, i) => {
       return <CollectionItem key={i}>
-        <Link to={`/listposts/${post._id}`} className="titleList"> {post.title} </Link>
+        <Link to={`/listposts/${post._id}`} 
+              className="titleList"> {post.title} 
+        </Link>
         <br/>
         <div className="chip">
           {post.type}
@@ -20,7 +21,6 @@ class PostLists extends Component {
         </div>
       </CollectionItem>
     })
-
     return (
       <Collection>
         {postJSX}

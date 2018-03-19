@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import '../../Assets/css/style.css';
 import axios from 'axios';
 
-class PostLists extends Component {
+class SinglePost extends Component {
   constructor(){
     super()
 
@@ -38,7 +38,7 @@ class PostLists extends Component {
           </div>
 
           <div className="card-action">
-            <a >//Comment link will go here!</a>
+            <a >Comment link will go here!</a>
 
           </div>
           <div className="chip">
@@ -51,4 +51,4 @@ class PostLists extends Component {
   }
 }
 
-export default PostLists;
+export default SinglePost;

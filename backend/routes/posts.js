@@ -10,6 +10,7 @@ const router = require("express").Router();
 const Wonder = require('../controllers/Wonder');
 
 const Post = require('../models/Post');
+const User = require('../models/User');
 
 //Allowing cors access. 
 router.use((req, res, next) => {
@@ -19,7 +20,7 @@ router.use((req, res, next) => {
 })
 
 
-// Add end point - add a new book
+// Add end point - add a new post
 router.post('/add', (req, res) => {
   console.log(req.body)
   const { user_id, title, body, date, type } = req.body
@@ -28,6 +29,7 @@ router.post('/add', (req, res) => {
     title,
     body,
     date: new Date(),
+    vote:0,
     type
   }, (post) => {
     res.json(post)
@@ -36,6 +38,13 @@ router.post('/add', (req, res) => {
 
 //Send Posts data to axios endpoint:
 router.get('/getposts', (req, res) => {    
+  Wonder.getAllPosts((posts) => {
+    res.send(posts)
+  })
+})
+
+//Send Posts data to axios endpoint:
+router.get('/getuser', (req, res) => {    
   Wonder.getAllPosts((posts) => {
     res.send(posts)
   })
@@ -54,6 +63,18 @@ router.get('/listposts/:objectId', (req,res) => {
 				.json({err});
 		})
 });
+
+  //Add user from Firebase to Database
+  router.post('/adduser', (req, res) => {
+    console.log(req.body)
+    const { name, email } = req.body
+    Wonder.addUser({
+      name,
+      email
+    }, (user) => {
+      res.json(user)
+    })
+})
 
 
 module.exports = router

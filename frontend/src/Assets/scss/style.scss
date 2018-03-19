@@ -10,13 +10,12 @@ $terciary-hover: rgb(219, 180, 52);
 @import "partials/_form";
 @import "partials/_list";
 @import "partials/_single";
+@import "partials/_nav";
 
 body{
   background-color: $background-light;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif,
 }
 
-.nav-extended{
-  padding: 2%;
-  background-color: $secondary-color;
-}
+
+

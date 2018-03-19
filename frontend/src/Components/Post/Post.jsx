@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Input, Button } from 'react-materialize'
+import { Row, Input, Button, Modal } from 'react-materialize'
 
 import '../../Assets/css/style.css';
 
@@ -8,6 +8,11 @@ class Post extends Component {
     return (
       
         <div className="wrapForm">
+        <Modal
+          header='Modal Header'
+          fixedFooter
+          trigger={<Button>New Post</Button>}>
+
         <h3> Share with your community! </h3>
         <br/>
 
@@ -38,8 +43,9 @@ class Post extends Component {
 
           <br/><br/>
 
-          <Button className="buttons"> button </Button>
+          
         </form>
+        </Modal>
       </div>
 
     );

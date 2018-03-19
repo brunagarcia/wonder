@@ -8,23 +8,22 @@ const PostSchema = new Schema({
   },
   title: {
     type: String,
-    // required: false,
   },
   body: {
     type: String,
-    // required: false,
   },
   type: {
     type: String,
-    // required: false,
   },
   date: {
     type: Date,
     required: true,
   },
+  vote: {
+    type: Number,
+  },
   comments: {
     type: Array,
-    // required: false,
   }
 })
 

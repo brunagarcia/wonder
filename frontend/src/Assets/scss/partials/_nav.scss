@@ -1,0 +1,26 @@
+nav{
+  padding: 3%;
+  background-color: $secondary-color;
+  height: 140px;
+}
+
+.nav-parent{
+  height: 40%;
+}
+
+.nav-link:hover{
+  background-color: $secondary-color;
+}
+
+button.btn{
+  background-color: $terciary-color;  
+}
+button.btn:hover{
+  background-color: $terciary-hover;
+}
+button.btn:active{
+  background-color: $terciary-color;
+}
+button.btn:visited{
+  background-color: $terciary-color;
+}

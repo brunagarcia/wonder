@@ -1,36 +1,78 @@
 import React, { Component } from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+// import { reduxForm } from 'redux-form';
 
+import firebase, { provider, auth } from '../../client';
 import axios from 'axios';
 import '../../Assets/css/style.css';
 
-import Header from '../Header/Header';
-// import Search from '../Search/Search';
-// import Footer from '../Footer/Footer';
+import Home from '../Home/Home';
 import Post from '../Post/Post';
-import PostLists from '../PostsLists/PostsLists';
 import SinglePost from '../SinglePost/SinglePost';
+
 
 class App extends Component {
   constructor(){
     super()
 
     this.state = {
-      //add user state phase 2
-      posts: []
+      posts: [],
+      user: null,
+      logStatus: false
     }
   }
 
-  //TODO:
-  //redirect to list posts page ONSUBMIT! and clean form!
+  //Login and Log out function!
+  login = () => {
+    auth().signInWithPopup(provider)
+      .then((result) => {
+        const user = result.user
+      this.setState({
+        user,
+        logStatus: true
+      });
+      axios.post('http://localhost:8080/adduser', {
+        name: String(firebase.auth().currentUser.displayName),
+        email: String(firebase.auth().currentUser.email)
+      })    
+    })
+    // console.log(this.state.user)
+  }
+
+
+  logout = () => {
+    console.log("oh wow, you are logged out!")
+    auth().signOut()
+      .then(() => {
+        this.setState({
+          logStatus: false,
+          user: null
+        });
+      });
+  }
+  
+  // componentDidMount(){
+  //   firebase.auth().onAuthStateChanged((user) => {
+  //     if (user) {
+  //       console.log("User is signed")
+  //       console.log(this.state.logStatus)
+  //     } else {
+  //       console.log("No user is signed in")
+  //       this.setState({
+  //         user: null,
+  //         logStatus: false
+  //       })
+  //     }
+  //   })
+  // }
 
 
   //Get posts from server and display in ListPosts Component.
   componentWillMount(){
     axios.get('http://localhost:8080/getposts')
     .then((response) => {
-      console.log("Component Will Mount")
-      console.log(response)
+      // console.log("Component Will Mount")
+      // console.log(response)
       this.setState({
         posts: response.data
       })
@@ -43,14 +85,13 @@ class App extends Component {
 
   //Get posts function:
   getPosts = (e) => {
-    e.preventDefault();
     axios.post('http://localhost:8080/add', {
       user_id: e.target.user_id.value,
       title: e.target.title.value,
       body: e.target.body.value,
       type: e.target.type.value
     }).then(() => {
-        return <Link to="/listposts"/>
+      e.onSubmitSuccess('/listposts')
     })
   }
 
@@ -58,11 +99,20 @@ class App extends Component {
     return (
       <div className="App">
       
-      <Header />
-      
-      
-      {/* //Routes */}
+      {/* Routes */}
       <Switch>
+        <Route 
+          exact path='/' 
+          render={ () => {
+            return <Home 
+                posts={this.state.posts}
+                user={this.state.user}
+                logout={this.logout}
+                login={this.login}
+                logStatus={this.state.logStatus}
+              />
+          }} 
+        />
         <Route 
           path='/posting' 
           render={ () => {
@@ -76,14 +126,7 @@ class App extends Component {
             return <SinglePost {...props}/>
           }}
           />
-        
-       
-        <Route  
-          exact path='/listposts' 
-          render={() => { 
-          return <PostLists posts={this.state.posts} />
-          }}
-          />
+
       </Switch>
     </div>
     );
