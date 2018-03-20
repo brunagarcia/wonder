@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import '../../Assets/css/style.css';
 
-import PostLists from '../PostsLists/PostsLists';
 import Nav from '../Nav/Nav';
+import Search from '../Search/Search';
+import PostLists from '../PostsLists/PostsLists';
 
 class Home extends Component {  
 
   render() {
     console.log("props on home");
-    console.log(this.props);
+    console.log(this.props)
     return (
       <div>
       <Nav
@@ -17,6 +18,7 @@ class Home extends Component {
         login={this.props.login}
         logStatus={this.props.logStatus}
       />
+      <Search />
       <PostLists posts={this.props.posts}/>
       </div>
     );

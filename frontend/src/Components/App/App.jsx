@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-// import { reduxForm } from 'redux-form';
 
-import firebase, { provider, auth } from '../../client';
+import { provider, auth } from '../../client';
 import axios from 'axios';
 import '../../Assets/css/style.css';
 
@@ -18,25 +17,27 @@ class App extends Component {
     this.state = {
       posts: [],
       user: null,
-      logStatus: false
+      logStatus: false,
+      fireRedirect: false
     }
   }
 
-  //Login and Log out function!
+  //Login Function
   login = () => {
-    auth().signInWithPopup(provider)
-      .then((result) => {
-        const user = result.user
-      this.setState({
-        user,
-        logStatus: true
-      });
-      axios.post('http://localhost:8080/adduser', {
-        name: String(firebase.auth().currentUser.displayName),
-        email: String(firebase.auth().currentUser.email)
-      })    
-    })
-    // console.log(this.state.user)
+        auth().signInWithPopup(provider)
+        .then((result) => {
+          const user = result.user
+        this.setState({
+          user,
+          logStatus: true
+        });
+        axios.post('http://localhost:8080/adduser', {
+          name: user.displayName,
+          email: user.email
+        })    
+      }).catch(error => {
+        console.log(error)
+      })
   }
 
 
@@ -48,31 +49,28 @@ class App extends Component {
           logStatus: false,
           user: null
         });
+      }).catch(function(error) {
+       console.log(error)
       });
   }
   
-  // componentDidMount(){
-  //   firebase.auth().onAuthStateChanged((user) => {
-  //     if (user) {
-  //       console.log("User is signed")
-  //       console.log(this.state.logStatus)
-  //     } else {
-  //       console.log("No user is signed in")
-  //       this.setState({
-  //         user: null,
-  //         logStatus: false
-  //       })
-  //     }
-  //   })
-  // }
+  //Keeping the user logged after refreshing page.
+  componentDidMount() {
+    auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ 
+          user,
+          logStatus: true
+        });
+      } 
+    });
+  }
 
 
   //Get posts from server and display in ListPosts Component.
   componentWillMount(){
     axios.get('http://localhost:8080/getposts')
     .then((response) => {
-      // console.log("Component Will Mount")
-      // console.log(response)
       this.setState({
         posts: response.data
       })
@@ -84,14 +82,20 @@ class App extends Component {
   
 
   //Get posts function:
-  getPosts = (e) => {
+  addPosts = (e) => {
+    e.preventDefault();
     axios.post('http://localhost:8080/add', {
-      user_id: e.target.user_id.value,
+      user_name: e.target.user_name.defaultValue,
+      user_email: e.target.user_email.defaultValue,
       title: e.target.title.value,
       body: e.target.body.value,
       type: e.target.type.value
     }).then(() => {
-      e.onSubmitSuccess('/listposts')
+      this.setState({
+        fireRedirect: true
+      })
+
+
     })
   }
 
@@ -102,7 +106,7 @@ class App extends Component {
       {/* Routes */}
       <Switch>
         <Route 
-          exact path='/' 
+          exact path='/home' 
           render={ () => {
             return <Home 
                 posts={this.state.posts}
@@ -114,9 +118,13 @@ class App extends Component {
           }} 
         />
         <Route 
-          path='/posting' 
+          path='/home/posting' 
           render={ () => {
-            return <Post getPosts={this.getPosts} />
+            return <Post
+            addPosts={this.addPosts}
+            user={this.state.user}
+            fireRedirect={this.state.fireRedirect} 
+             />
           }} 
         />
 

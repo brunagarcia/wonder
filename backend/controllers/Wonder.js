@@ -4,6 +4,7 @@
  */
 
 //Import the models
+const bodyParser = require('body-parser');
 const Post = require('../models/Post')
 const User = require('../models/User')
 
@@ -17,9 +18,10 @@ const Wonder = {
   },
 
   //Add a new post to Wonder
-  addPost: ({user_id, title, body, date, vote, type}, callback) => {
+  addPost: ({user_name, user_email, title, body, date, vote, type}, callback) => {
     Post({
-      user_id,
+      user_name,
+      user_email,
       title,
       body,
       date,
@@ -28,6 +30,8 @@ const Wonder = {
     }).save()
       .then(post => {
         callback(post)
+      }).catch(error => {
+        console.log(error)
       })
   },
 

@@ -23,9 +23,10 @@ router.use((req, res, next) => {
 // Add end point - add a new post
 router.post('/add', (req, res) => {
   console.log(req.body)
-  const { user_id, title, body, date, type } = req.body
+  const { user_name, user_email, title, body, date, type } = req.body
   Wonder.addPost({
-    user_id,
+    user_name,
+    user_email,
     title,
     body,
     date: new Date(),

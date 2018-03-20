@@ -28,6 +28,34 @@ $input-margin-bottom: $secondary-color;
   .input-field.col.s12 .prefix.active {
     color: rgb(227, 40, 96);
   }
+
+
+  .materialize-textarea.input-field label {
+    color: rgb(227, 40, 96);
+  }
+  /* label focus color */
+  .materialize-textarea.input-field input[type=text]:focus + label {
+    color: rgb(227, 40, 96);
+  }
+  /* label underline focus color */
+  .materialize-textarea.input-field input[type=text]:focus {
+    border-bottom: 1px solid rgb(227, 40, 96);
+    box-shadow: 0 1px 0 0 rgb(227, 40, 96);
+  }
+  /* valid color */
+  .materialize-textarea.input-field input[type=text].valid {
+    border-bottom: 1px solid rgb(227, 40, 96);
+    box-shadow: 0 1px 0 0 rgb(227, 40, 96);
+  }
+  /* invalid color */
+  .materialize-textarea.input-field input[type=text].materialize-textarea.invalid {
+    border-bottom: 1px solid rgb(227, 40, 96);
+    box-shadow: 0 1px 0 0 rgb(227, 40, 96);
+  }
+  /* icon prefix focus color */
+  .materialize-textarea.input-field .prefix .active {
+    color: rgb(227, 40, 96);
+  }
   
 
 .wrapForm{
@@ -51,6 +79,17 @@ $input-margin-bottom: $secondary-color;
   background-color: $primary-color;
 }
 
+.searchWrapper{
+  text-align: center;
+}
+
+.search{
+  max-width: 400pt;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 30%;
+}
+
 input:not([type]):focus:not([readonly])+label,.form-wrap input[type=text]:not(.browser-default):focus:not([readonly])+label,.form-wrap input[type=password]:not(.browser-default):focus:not([readonly])+label,.form-wrap input[type=email]:not(.browser-default):focus:not([readonly])+label,.form-wrap input[type=url]:not(.browser-default):focus:not([readonly])+label,.form-wrap input[type=time]:not(.browser-default):focus:not([readonly])+label,.form-wrap input[type=date]:not(.browser-default):focus:not([readonly])+label,.form-wrap input[type=datetime]:not(.browser-default):focus:not([readonly])+label,.form-wrap input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label,.form-wrap input[type=tel]:not(.browser-default):focus:not([readonly])+label,.form-wrap input[type=number]:not(.browser-default):focus:not([readonly])+label,.form-wrap input[type=search]:not(.browser-default):focus:not([readonly])+label,.form-wrap textarea.materialize-textarea:focus:not([readonly])+label
 
 {
@@ -65,4 +104,8 @@ color: $primary-color; /* after animation color change css */
 
 border-bottom: 1px solid $primary-color;
 box-shadow: 0 1px 0 0 $primary-color; /* after animation color change css */
+}
+
+.hidden{
+  display: none;
 }

@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-// import { Collection, CollectionItem, Chip } from 'react-materialize'
 
 import '../../Assets/css/style.css';
 import axios from 'axios';
+
+//todo:
+// --Create back button on bottom of the comment
+// --Add Comments
+// --Align content
 
 class SinglePost extends Component {
   constructor(){
@@ -34,7 +38,7 @@ class SinglePost extends Component {
           <div className="card-content">
             <span className="card-title">{this.state.singlePost.title}</span>
             <p>{this.state.singlePost.body}</p>
-            <p>{this.state.singlePost.user_id} user name based on ID!</p>
+            <p>{this.state.singlePost.user_name}</p>
           </div>
 
           <div className="card-action">
