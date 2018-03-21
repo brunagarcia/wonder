@@ -4,12 +4,6 @@ import { Button, Navbar } from 'react-materialize';
 
 import '../../Assets/css/style.css';
 
-//todo
-// --Fix Name on Nav.
-// --Fix responsive Nav.
-// --Fix Buttons space between.
-
-
 class Nav extends Component {
 
   render() {
@@ -25,7 +19,9 @@ class Nav extends Component {
           </Navbar>
            : 
           <Navbar brand={logo} right>
-            <span className="nav-text"> Hello {this.props.user.displayName} </span>
+            <ul>
+              <span className="nav-text"> Hello {this.props.user.displayName} </span>
+            </ul>
             <Button className="waves-effect btn-small">
               <Link to="/home/posting">
                 New Post!

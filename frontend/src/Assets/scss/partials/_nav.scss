@@ -1,5 +1,5 @@
 nav{
-  padding: 3%;
+  padding: 0.5% 1%;
   background-color: $background-light;
   height: 140px;
 }
@@ -10,14 +10,16 @@ nav{
 }
 
 .nav-text{
+  font-size: 20px;
   color: $text-dark;
 }
 
-.nav-link:hover{
-  background-color: $secondary-color;
+.brand-logo{
+  margin: 1% 1%;
 }
 
 button.btn{
+  margin-right: 7px;
   background-color: $terciary-color;  
 }
 button.btn:hover{

@@ -6,7 +6,8 @@ import '../../Assets/css/style.css';
 
 //todo
 //Conditional in case Post is empty.
-//Fix form colors.
+//Fix TextArea colors.
+//Create Cancel Button
 
 class Post extends Component {
   render() {
@@ -34,8 +35,8 @@ class Post extends Component {
           <br/>
 
           <div className="input-field col s12">
-            <textarea name="body" id="textarea1" className="materialize-textarea input-field"></textarea>
-            <label for="textarea1">Input text:</label>
+            <textarea className="materialize-textarea input-field" name="body" id="title" type="text" />
+            <label> Text </label>
           </div>
 
           <br/>

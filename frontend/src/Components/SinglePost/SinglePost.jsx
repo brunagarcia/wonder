@@ -6,7 +6,8 @@ import axios from 'axios';
 
 //todo:
 // --Create back button on bottom of the comment
-// --Add Comments
+// --Add Mock Comments 
+//      --Save button on comments.
 // --Align content
 
 class SinglePost extends Component {

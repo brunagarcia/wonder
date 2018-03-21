@@ -9,17 +9,24 @@
 }
 
 .chip{
-  background-color: $terciary-color;
-  width: 10%;
-  height: 10%;
+  background-color: $light-grey;
+}
+
+.user-container{
+    align-self: right;
+    display: inline;
 }
 
 .userList{
-  display: inline;
-  color:grey;
+  color:$terciary-color;
+  font-size: 17px;
 }
 
 .flex{
   display: flex;
   justify-content: space-evenly;
+}
+
+.collection .collestion-item{
+  padding: 5%;
 }

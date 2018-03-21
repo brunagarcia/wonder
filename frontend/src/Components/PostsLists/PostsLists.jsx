@@ -17,8 +17,8 @@ class PostLists extends Component {
         <div className="chip">
           {post.type}
         </div>
-        <div className="userList">
-          {post.user_name}
+        <div className="user-container">
+          by <span className="userList"> {post.user_name} </span>
         </div>
       </CollectionItem>
     })

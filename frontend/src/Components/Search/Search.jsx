@@ -4,11 +4,6 @@ import axios from 'axios';
 import '../../Assets/css/style.css';
 
 
-//todo
-//Search Functionality
-//Search style
-
-
 class Search extends Component {
   render() {
     console.log(this.props)
@@ -19,7 +14,7 @@ class Search extends Component {
           <div className="input-field search">
             <input onChange={searchPosts} id="search" type="search" required/>
             <label className="label-icon"><i className="material-icons">search</i></label>
-            <i className="material-icons">close</i>
+            <i className="material-icons close-icon">close</i>
             <div id="searchResults" ></div>
           </div>
       </form>

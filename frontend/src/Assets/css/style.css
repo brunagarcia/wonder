@@ -1,20 +1,20 @@
 /* label color */
 .input-field.col.s12 label {
-  color: #e32860; }
+  color: #4f4a55; }
 
 /* label focus color */
 .input-field.col.s12 input[type=text]:focus + label {
-  color: #e32860; }
+  color: #4f4a55; }
 
 /* label underline focus color */
 .input-field.col.s12 input[type=text]:focus {
-  border-bottom: 1px solid #e32860;
-  box-shadow: 0 1px 0 0 #e32860; }
+  border-bottom: 1px solid #4f4a55;
+  box-shadow: 0 1px 0 0 #4f4a55; }
 
 /* valid color */
 .input-field.col.s12 input[type=text].valid {
-  border-bottom: 1px solid #e32860;
-  box-shadow: 0 1px 0 0 #e32860; }
+  border-bottom: 1px solid #4f4a55;
+  box-shadow: 0 1px 0 0 #4f4a55; }
 
 /* invalid color */
 .input-field.col.s12 input[type=text].invalid {
@@ -23,33 +23,33 @@
 
 /* icon prefix focus color */
 .input-field.col.s12 .prefix.active {
-  color: #e32860; }
+  color: #4f4a55; }
 
-.materialize-textarea.input-field label {
-  color: #e32860; }
+.materialize-textarea label {
+  color: #4f4a55 227, 40, 96; }
 
 /* label focus color */
-.materialize-textarea.input-field input[type=text]:focus + label {
-  color: #e32860; }
+.materialize-textarea textarea[type=text]:focus + label {
+  color: #4f4a55 227, 40, 96; }
 
 /* label underline focus color */
-.materialize-textarea.input-field input[type=text]:focus {
+.materialize-textarea textarea[type=text]:focus {
   border-bottom: 1px solid #e32860;
   box-shadow: 0 1px 0 0 #e32860; }
 
 /* valid color */
-.materialize-textarea.input-field input[type=text].valid {
+.materialize-textarea textarea[type=text].valid {
   border-bottom: 1px solid #e32860;
   box-shadow: 0 1px 0 0 #e32860; }
 
 /* invalid color */
-.materialize-textarea.input-field input[type=text].materialize-textarea.invalid {
+.materialize-textarea textarea[type=text].invalid {
   border-bottom: 1px solid #e32860;
   box-shadow: 0 1px 0 0 #e32860; }
 
 /* icon prefix focus color */
-.materialize-textarea.input-field .prefix .active {
-  color: #e32860; }
+.materialize-textarea .prefix.active {
+  color: #4f4a55; }
 
 .wrapForm {
   margin: 0.5% 10% 0% 10%;
@@ -59,7 +59,6 @@
   width: 80%; }
 
 .buttons {
-  margin: 0 20% 5% 20%;
   background-color: #97a5d8; }
 
 .buttons:hover {
@@ -77,17 +76,12 @@
   justify-content: space-evenly;
   margin-left: 30%; }
 
-input:not([type]):focus:not([readonly]) + label, .form-wrap input[type=text]:not(.browser-default):focus:not([readonly]) + label, .form-wrap input[type=password]:not(.browser-default):focus:not([readonly]) + label, .form-wrap input[type=email]:not(.browser-default):focus:not([readonly]) + label, .form-wrap input[type=url]:not(.browser-default):focus:not([readonly]) + label, .form-wrap input[type=time]:not(.browser-default):focus:not([readonly]) + label, .form-wrap input[type=date]:not(.browser-default):focus:not([readonly]) + label, .form-wrap input[type=datetime]:not(.browser-default):focus:not([readonly]) + label, .form-wrap input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label, .form-wrap input[type=tel]:not(.browser-default):focus:not([readonly]) + label, .form-wrap input[type=number]:not(.browser-default):focus:not([readonly]) + label, .form-wrap input[type=search]:not(.browser-default):focus:not([readonly]) + label, .form-wrap textarea.materialize-textarea:focus:not([readonly]) + label {
-  color: #97a5d8;
-  /* after animation color change css */ }
-
-.form-wrap input:focus:not([type]):not([readonly]), .form-wrap input[type="text"]:focus:not(.browser-default):not([readonly]), .form-wrap input[type="password"]:focus:not(.browser-default):not([readonly]), input[type="email"]:focus:not(.browser-default):not([readonly]), .form-wrap input[type="url"]:focus:not(.browser-default):not([readonly]), input[type="time"]:focus:not(.browser-default):not([readonly]), .form-wrap input[type="date"]:focus:not(.browser-default):not([readonly]), input[type="datetime"]:focus:not(.browser-default):not([readonly]), .form-wrap input[type="datetime-local"]:focus:not(.browser-default):not([readonly]), input[type="tel"]:focus:not(.browser-default):not([readonly]), .form-wrap input[type="number"]:focus:not(.browser-default):not([readonly]), input[type="search"]:focus:not(.browser-default):not([readonly]), .form-wrap textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #97a5d8;
-  box-shadow: 0 1px 0 0 #97a5d8;
-  /* after animation color change css */ }
-
 .hidden {
   display: none; }
+
+ul.dropdown-content.select-dropdown li span {
+  color: #4f4a55;
+  /* no need for !important :) */ }
 
 .titleList {
   font-size: 2em;
@@ -98,17 +92,22 @@ input:not([type]):focus:not([readonly]) + label, .form-wrap input[type=text]:not
   color: #84707D; }
 
 .chip {
-  background-color: #FDC394;
-  width: 10%;
-  height: 10%; }
+  background-color: #E5D6D8; }
+
+.user-container {
+  align-self: right;
+  display: inline; }
 
 .userList {
-  display: inline;
-  color: grey; }
+  color: #FDC394;
+  font-size: 17px; }
 
 .flex {
   display: flex;
   justify-content: space-evenly; }
+
+.collection .collestion-item {
+  padding: 5%; }
 
 .row.col {
   margin: 0.5% 10% 0% 10%;
@@ -144,7 +143,7 @@ input:not([type]):focus:not([readonly]) + label, .form-wrap input[type=text]:not
   color: #979696; }
 
 nav {
-  padding: 3%;
+  padding: 0.5% 1%;
   background-color: #f9f9f9;
   height: 140px; }
 
@@ -153,12 +152,14 @@ nav {
   height: 40%; }
 
 .nav-text {
+  font-size: 20px;
   color: #4f4a55; }
 
-.nav-link:hover {
-  background-color: #987E8E; }
+.brand-logo {
+  margin: 1% 1%; }
 
 button.btn {
+  margin-right: 7px;
   background-color: #FDC394; }
 
 button.btn:hover {
@@ -169,6 +170,10 @@ button.btn:active {
 
 button.btn:visited {
   background-color: #FDC394; }
+
+.close-icon {
+  color: #E5D6D8;
+  padding-top: 6px; }
 
 body {
   background-color: #585360;
