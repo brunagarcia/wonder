@@ -4,6 +4,7 @@
 */
 
 const router = require("express").Router();
+const Faker = require("Faker")
 //Import the router
 
 //Import the Library contoller
@@ -33,9 +34,34 @@ router.post('/add', (req, res) => {
     vote:0,
     type
   }, (post) => {
-    res.json(post)
+    console.log(post)
+    Wonder.getAllPosts((posts) => {
+      res.send(posts)
+    })
   })
+  
 })
+
+router.get('/getfilterposts', (req, res) => {   
+  console.log(req.query[0])
+  Post.find({})
+  .then(object => {
+    let container = []
+    let newFilter = object.filter((post, i )=> {
+      if (post.title.includes(req.query[0])){
+        container.push(post)   
+      }
+    })
+    res.json(container)
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(400)
+      .json({err});
+  })
+});
+
+
 
 //Send Posts data to axios endpoint:
 router.get('/getposts', (req, res) => {    
@@ -66,7 +92,7 @@ router.get('/listposts/:objectId', (req,res) => {
 });
 
   //Add user from Firebase to Database
-  router.post('/adduser', (req, res) => {
+  router.get('/adduser', (req, res) => {
     console.log(req.body)
     const { name, email } = req.body
     Wonder.addUser({
@@ -79,3 +105,15 @@ router.get('/listposts/:objectId', (req,res) => {
 
 
 module.exports = router
+
+// app.get('/testing', (req, res) => {
+//   //console.log(req.body)
+//   const user = {
+//     name: Faker.Name.findName(),
+//     email: Faker.Internet.email(),
+//     address: Faker.Address.streetAddress(),
+//     bio: Faker.Lorem.sentence(),
+//     image: Faker.Image.avatar()
+//     };
+//     res.json(user)
+// })

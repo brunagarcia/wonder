@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Modal, Button, Icon } from 'react-materialize'
 
 import '../../Assets/css/style.css';
 import axios from 'axios';
@@ -35,22 +36,28 @@ class SinglePost extends Component {
       <div className="row">
       <div className="col">
         <div className="card">
+        <div className="chip">
+          {this.state.singlePost.type}
+          </div>
           <div className="card-content">
             <span className="card-title">{this.state.singlePost.title}</span>
-            <p>{this.state.singlePost.body}</p>
-            <p>{this.state.singlePost.user_name}</p>
+            <p className="cart-body">{this.state.singlePost.body}</p>
+            <p className="cart-author">{this.state.singlePost.user_name}</p>
           </div>
 
-          <div className="card-action">
-            <a >Comment link will go here!</a>
-
+          <div>
+          <Modal
+            header='Input your comment:'
+            trigger={<Button className="submit"><Icon>comment</Icon></Button>}>
+            <form>
+            <textarea name="body" id="textarea1" className="materialize-textarea input-field"></textarea>
+            <label for="textarea1">Input comment:</label>
+            </form>
+            </Modal>  
           </div>
-          <div className="chip">
-          {this.state.singlePost.type}
           </div>
         </div>
       </div>
-    </div>
     )
   }
 }

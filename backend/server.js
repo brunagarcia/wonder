@@ -9,6 +9,7 @@ const connection = require('./init/connect')
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const Faker = require("Faker")
 
 //Import a route
 const posts = require('./routes/posts')

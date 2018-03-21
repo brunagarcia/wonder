@@ -18,7 +18,7 @@ class Home extends Component {
         login={this.props.login}
         logStatus={this.props.logStatus}
       />
-      <Search />
+      <Search searchPosts={this.props.searchPosts} />
       <PostLists posts={this.props.posts}/>
       </div>
     );

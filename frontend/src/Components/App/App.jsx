@@ -18,11 +18,12 @@ class App extends Component {
       posts: [],
       user: null,
       logStatus: false,
-      fireRedirect: false
+      fireRedirect: false,
+      searchInput: null
     }
   }
 
-  //Login Function
+  //Functions
   login = () => {
         auth().signInWithPopup(provider)
         .then((result) => {
@@ -53,7 +54,24 @@ class App extends Component {
        console.log(error)
       });
   }
-  
+
+  searchPosts = (event) => {
+    event.persist();
+    this.setState({
+      searchInput: event.target.value
+    })
+    axios.get('http://localhost:8080/getfilterposts', {
+      params: this.state.searchInput
+    }).then(response => {
+        const searchResults = response.data
+        this.setState({
+          posts: searchResults
+        })
+    }).catch(error => {
+      console.log(error);
+    })
+  }
+
   //Keeping the user logged after refreshing page.
   componentDidMount() {
     auth().onAuthStateChanged((user) => {
@@ -65,7 +83,6 @@ class App extends Component {
       } 
     });
   }
-
 
   //Get posts from server and display in ListPosts Component.
   componentWillMount(){
@@ -90,12 +107,13 @@ class App extends Component {
       title: e.target.title.value,
       body: e.target.body.value,
       type: e.target.type.value
-    }).then(() => {
+    })
+    .then((response) => {
+      console.log(response)
       this.setState({
+        posts: response.data,
         fireRedirect: true
       })
-
-
     })
   }
 
@@ -111,6 +129,7 @@ class App extends Component {
             return <Home 
                 posts={this.state.posts}
                 user={this.state.user}
+                searchPosts={this.searchPosts}
                 logout={this.logout}
                 login={this.login}
                 logStatus={this.state.logStatus}
@@ -121,9 +140,9 @@ class App extends Component {
           path='/home/posting' 
           render={ () => {
             return <Post
-            addPosts={this.addPosts}
-            user={this.state.user}
-            fireRedirect={this.state.fireRedirect} 
+              addPosts={this.addPosts}
+              user={this.state.user}
+              fireRedirect={this.state.fireRedirect} 
              />
           }} 
         />

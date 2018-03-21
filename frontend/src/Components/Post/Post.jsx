@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Row, Input, Button, Modal } from 'react-materialize';
+import { Row, Input, Button } from 'react-materialize';
 import { Redirect } from 'react-router-dom';
 
 import '../../Assets/css/style.css';
 
 //todo
-//Make list render after submit.
-//Persist state if URL is used.
+//Conditional in case Post is empty.
 //Fix form colors.
 
 class Post extends Component {
@@ -34,7 +33,7 @@ class Post extends Component {
 
           <br/>
 
-          <div class="input-field col s12">
+          <div className="input-field col s12">
             <textarea name="body" id="textarea1" className="materialize-textarea input-field"></textarea>
             <label for="textarea1">Input text:</label>
           </div>
