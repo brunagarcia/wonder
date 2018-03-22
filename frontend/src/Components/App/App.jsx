@@ -102,7 +102,6 @@ class App extends Component {
   addPosts = (e) => {
     e.preventDefault();
     axios.post('http://localhost:8080/add', {
-      // comments: -- to be added when change database
       user_name: e.target.user_name.defaultValue,
       user_email: e.target.user_email.defaultValue,
       title: e.target.title.value,

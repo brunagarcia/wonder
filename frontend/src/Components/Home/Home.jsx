@@ -10,7 +10,7 @@ import Footer from '../Footer/Footer';
 class Home extends Component {  
 
   componentDidMount() {
-    this.props.toggleRedirect()
+    this.props.toggleRedirect();
   }
 
   render() {

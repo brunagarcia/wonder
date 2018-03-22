@@ -49,7 +49,7 @@ router.get('/getfilterposts', (req, res) => {
   .then(object => {
     let container = []
     let newFilter = object.filter((post, i )=> {
-      if (post.title.includes(req.query[0])){
+      if (post.title.toLowerCase().includes(req.query[0].toLowerCase())){
         container.push(post)   
       }
     })
