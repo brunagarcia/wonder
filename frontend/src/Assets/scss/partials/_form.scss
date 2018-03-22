@@ -1,58 +1,62 @@
-  /* label color */
-  .input-field.col.s12 label {
-    color: $text-dark ;
-  }
-  /* label focus color */
-  .input-field.col.s12 input[type=text]:focus + label {
-    color: $text-dark;
-  }
-  /* label underline focus color */
-  .input-field.col.s12 input[type=text]:focus {
-    border-bottom: 1px solid $text-dark;
-    box-shadow: 0 1px 0 0 $text-dark;
-  }
-  /* valid color */
-  .input-field.col.s12 input[type=text].valid {
-    border-bottom: 1px solid $text-dark;
-    box-shadow: 0 1px 0 0 $text-dark;
-  }
-  /* invalid color */
-  .input-field.col.s12 input[type=text].invalid {
-    border-bottom: 1px solid rgb(227, 40, 96);
-    box-shadow: 0 1px 0 0 rgb(227, 40, 96);
-  }
-  /* icon prefix focus color */
-  .input-field.col.s12 .prefix.active {
-    color: $text-dark;
-  }
+/* label color */
+.input-field.col.s12 label {
+  color: $text-dark ;
+}
+/* label focus color */
+.input-field.col.s12 input[type=text]:focus + label {
+  color: $text-dark;
+}
+/* label underline focus color */
+.input-field.col.s12 input[type=text]:focus {
+  border-bottom: 1px solid $text-dark;
+  box-shadow: 0 1px 0 0 $text-dark;
+}
+/* valid color */
+.input-field.col.s12 input[type=text].valid {
+  border-bottom: 1px solid $text-dark;
+  box-shadow: 0 1px 0 0 $text-dark;
+}
+/* invalid color */
+.input-field.col.s12 input[type=text].invalid {
+  border-bottom: 1px solid rgb(227, 40, 96);
+  box-shadow: 0 1px 0 0 rgb(227, 40, 96);
+}
+/* icon prefix focus color */
+.input-field.col.s12 .prefix.active {
+  color: $text-dark;
+}
+textarea {
+  width: 100%;
+  height: 240px;
+}
 
 
-  .materialize-textarea label {
-    color: $text-dark(227, 40, 96);
-  }
-  /* label focus color */
-  .materialize-textarea textarea[type=text]:focus + label {
-    color: $text-dark(227, 40, 96);
-  }
-  /* label underline focus color */
-  .materialize-textarea textarea[type=text]:focus {
-    border-bottom: 1px solid rgb(227, 40, 96);
-    box-shadow: 0 1px 0 0 rgb(227, 40, 96);
-  }
-  /* valid color */
-  .materialize-textarea textarea[type=text].valid {
-    border-bottom: 1px solid rgb(227, 40, 96);
-    box-shadow: 0 1px 0 0 rgb(227, 40, 96);
-  }
-  /* invalid color */
-  .materialize-textarea textarea[type=text].invalid {
-    border-bottom: 1px solid rgb(227, 40, 96);
-    box-shadow: 0 1px 0 0 rgb(227, 40, 96);
-  }
-  /* icon prefix focus color */
-  .materialize-textarea .prefix.active {
-    color: $text-dark;
-  }
+.materialize-textarea label {
+  color: $text-dark(227, 40, 96);
+}
+/* label focus color */
+.materialize-textarea textarea[type=text]:focus + label {
+  color: $text-dark(227, 40, 96);
+}
+/* label underline focus color */
+.materialize-textarea textarea[type=text]:focus {
+  border-bottom: 1px solid rgb(227, 40, 96);
+  box-shadow: 0 1px 0 0 rgb(227, 40, 96);
+}
+/* valid color */
+.materialize-textarea textarea[type=text].valid {
+  border-bottom: 1px solid rgb(227, 40, 96);
+  box-shadow: 0 1px 0 0 rgb(227, 40, 96);
+}
+/* invalid color */
+.materialize-textarea textarea[type=text].invalid {
+  border-bottom: 1px solid rgb(227, 40, 96);
+  box-shadow: 0 1px 0 0 rgb(227, 40, 96);
+}
+/* icon prefix focus color */
+.materialize-textarea .prefix.active {
+  color: $text-dark;
+}
   
 .wrapForm{
   margin: 0.5% 10% 0% 10%;
@@ -69,6 +73,7 @@
 
 .buttons:hover{
   background-color: $primary-hover;
+
 }
 
 .buttons:after{

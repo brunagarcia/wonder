@@ -7,6 +7,10 @@ import PostLists from '../PostsLists/PostsLists';
 
 class Home extends Component {  
 
+  componentDidMount() {
+    this.props.toggleRedirect()
+  }
+
   render() {
     console.log("props on home");
     console.log(this.props)

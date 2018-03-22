@@ -11,15 +11,16 @@ const User = require('../models/User')
 const Wonder = {
   //Get all the Posts from the database
   getAllPosts: (callback) => {
-    Post.find({})
+    Post.find({}).sort([['date', -1]])
     .then(posts => {
       callback(posts)
     })
   },
 
   //Add a new post to Wonder
-  addPost: ({user_name, user_email, title, body, date, vote, type}, callback) => {
+  addPost: ({comments, user_name, user_email, title, body, date, vote, type}, callback) => {
     Post({
+      comments,
       user_name,
       user_email,
       title,
@@ -46,8 +47,5 @@ const Wonder = {
         })
   },
 }
-
-
-
 
 module.exports = Wonder

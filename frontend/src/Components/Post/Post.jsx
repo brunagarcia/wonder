@@ -10,9 +10,15 @@ import '../../Assets/css/style.css';
 //Create Cancel Button
 
 class Post extends Component {
+
   render() {
     const { from } = this.props.location || '/'
     const { fireRedirect, user } = this.props
+
+    if(!this.props.user) {
+      return <Redirect to={from || '/home'}/>
+    }
+
     return (
       
         <div className="wrapForm">
@@ -35,7 +41,7 @@ class Post extends Component {
           <br/>
 
           <div className="input-field col s12">
-            <textarea className="materialize-textarea input-field" name="body" id="title" type="text" />
+            <textarea className="input-field" name="body" type="text" />
             <label> Text </label>
           </div>
 

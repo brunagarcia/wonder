@@ -4,7 +4,7 @@
 */
 
 const router = require("express").Router();
-const Faker = require("Faker")
+const faker = require("faker");
 //Import the router
 
 //Import the Library contoller
@@ -24,15 +24,16 @@ router.use((req, res, next) => {
 // Add end point - add a new post
 router.post('/add', (req, res) => {
   console.log(req.body)
-  const { user_name, user_email, title, body, date, type } = req.body
+  const { comments ,user_name, user_email, title, body, date, type } = req.body
   Wonder.addPost({
-    user_name,
-    user_email,
-    title,
-    body,
+    comments: faker.lorem.sentence(),
+    user_name: faker.name.firstName(),
+    user_email: faker.internet.email(),
+    title: faker.random.words(),
+    body: faker.lorem.paragraph(),
     date: new Date(),
     vote:0,
-    type
+    type: "Code"
   }, (post) => {
     console.log(post)
     Wonder.getAllPosts((posts) => {
@@ -44,7 +45,7 @@ router.post('/add', (req, res) => {
 
 router.get('/getfilterposts', (req, res) => {   
   console.log(req.query[0])
-  Post.find({})
+  Post.find({}).sort([['date', -1]])
   .then(object => {
     let container = []
     let newFilter = object.filter((post, i )=> {

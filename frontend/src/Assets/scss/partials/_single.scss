@@ -10,6 +10,10 @@
   padding: 2%;
 }
 
+.container{
+  width: 80%;
+}
+
 .card-content{
   background-color: white;
   width: 100%;
@@ -31,10 +35,54 @@
 }
 
 .card-title{
-  font-size: 35px;
-  color: $primary-color;
+  padding: 2%;
+  font-size: 40px;
+  color: $secondary-color !important;
 }
 
 .cart-author{
-  color: rgb(151, 150, 150);
+  color: $terciary-color;
+}
+
+button.btn.single-post{
+  background-color: rgba(255, 255, 255, 0);
+  .btn, .btn-large {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+    letter-spacing: .5px;
+    transition: .2s ease-out;
+    cursor: pointer;
+  }
+  .btn i{
+    color: $primary-color;
+  }
+}
+
+button.btn.single-post:hover{
+  .btn, .btn-large, i {
+    text-decoration: none;
+    color: #fff;
+    background-color: $terciary-hover;
+    text-align: center;
+    letter-spacing: .5px;
+    transition: .2s ease-out;
+    cursor: pointer;
+    color: white;
+  }
+}
+
+.button-wrap{
+  border-top: 1px solid $light-grey;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1%;
+}
+
+.cart-comment{
+  font-size: 17px;
+  border-top: 1px solid $light-grey;
+  justify-content: space-evenly;
+  padding: 1%;
 }

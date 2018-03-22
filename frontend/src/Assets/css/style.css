@@ -25,6 +25,10 @@
 .input-field.col.s12 .prefix.active {
   color: #4f4a55; }
 
+textarea {
+  width: 100%;
+  height: 240px; }
+
 .materialize-textarea label {
   color: #4f4a55 227, 40, 96; }
 
@@ -119,6 +123,9 @@ ul.dropdown-content.select-dropdown li span {
   color: #987E8E;
   padding: 2%; }
 
+.container {
+  width: 80%; }
+
 .card-content {
   background-color: white;
   width: 100%; }
@@ -136,11 +143,47 @@ ul.dropdown-content.select-dropdown li span {
   font-size: 20px; }
 
 .card-title {
-  font-size: 35px;
-  color: #97a5d8; }
+  padding: 2%;
+  font-size: 40px;
+  color: #987E8E !important; }
 
 .cart-author {
-  color: #979696; }
+  color: #FDC394; }
+
+button.btn.single-post {
+  background-color: rgba(255, 255, 255, 0); }
+  button.btn.single-post .btn, button.btn.single-post .btn-large {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+    letter-spacing: .5px;
+    transition: .2s ease-out;
+    cursor: pointer; }
+  button.btn.single-post .btn i {
+    color: #97a5d8; }
+
+button.btn.single-post:hover .btn, button.btn.single-post:hover .btn-large, button.btn.single-post:hover i {
+  text-decoration: none;
+  color: #fff;
+  background-color: #E2AF88;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
+  color: white; }
+
+.button-wrap {
+  border-top: 1px solid #E5D6D8;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1%; }
+
+.cart-comment {
+  font-size: 17px;
+  border-top: 1px solid #E5D6D8;
+  justify-content: space-evenly;
+  padding: 1%; }
 
 nav {
   padding: 0.5% 1%;

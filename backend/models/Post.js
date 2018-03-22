@@ -2,6 +2,11 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
+  comments:{ 
+    type: [
+      String
+    ]
+  },
   user_name: {
     type: String,
     // required: true,
@@ -25,9 +30,6 @@ const PostSchema = new Schema({
   },
   vote: {
     type: Number,
-  },
-  comments: {
-    type: Array,
   }
 })
 

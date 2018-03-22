@@ -6,6 +6,7 @@ import '../../Assets/css/style.css';
 
 class PostLists extends Component {
   render() {
+    
     const { posts } = this.props;
     let postJSX = posts.map((post, i) => {
 
@@ -25,6 +26,7 @@ class PostLists extends Component {
 
     return (
       <Collection>
+      {/* <p> hello </p> */}
         {postJSX}
       </Collection>
 

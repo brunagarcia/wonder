@@ -18,7 +18,7 @@ class App extends Component {
       posts: [],
       user: null,
       logStatus: false,
-      fireRedirect: false,
+      fireRedirect: true,
       searchInput: null
     }
   }
@@ -102,6 +102,7 @@ class App extends Component {
   addPosts = (e) => {
     e.preventDefault();
     axios.post('http://localhost:8080/add', {
+      // comments: -- to be added when change database
       user_name: e.target.user_name.defaultValue,
       user_email: e.target.user_email.defaultValue,
       title: e.target.title.value,
@@ -114,6 +115,12 @@ class App extends Component {
         posts: response.data,
         fireRedirect: true
       })
+    })
+  }
+
+  toggleRedirect = () => {
+    this.setState({
+      fireRedirect: !this.state.fireRedirect
     })
   }
 
@@ -133,12 +140,14 @@ class App extends Component {
                 logout={this.logout}
                 login={this.login}
                 logStatus={this.state.logStatus}
+                toggleRedirect={this.toggleRedirect}
               />
           }} 
         />
         <Route 
           path='/home/posting' 
           render={ () => {
+            console.log(this.state.fireRedirect)
             return <Post
               addPosts={this.addPosts}
               user={this.state.user}
