@@ -19,9 +19,10 @@ class Nav extends Component {
           </Navbar>
            : 
           <Navbar brand={logo} right>
-            <ul>
+            <div className="hello-wrap">
               <span className="nav-text"> Hello {this.props.user.displayName} </span>
-            </ul>
+              <img src={this.props.user.photoURL} className="circle responsive-img" alt='Contact Person'/> 
+            </div>
             <Button className="waves-effect btn-small">
               <Link to="/home/posting">
                 New Post!

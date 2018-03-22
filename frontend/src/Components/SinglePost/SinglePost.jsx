@@ -46,39 +46,53 @@ class SinglePost extends Component {
         <div className="col s12">
           <div className="card">
             <div className="card-content">
-              <span className="card-title">{this.state.singlePost.title}</span>
+              {/* Add voting */}
+              <div className="header">
+                <div className="votes">
+                <Icon>thumb_up</Icon>
+                <br/>
+                <span> {this.state.singlePost.vote} </span>
+                </div>
+                <span className="card-title">
+                  {this.state.singlePost.title}
+                </span>
+              </div>
               <div className="cart-body">
                 {this.state.singlePost.body}
               </div>
-              <br/><br/>
-              <p className="cart-author">{this.state.singlePost.user_name}</p>
-            </div>
-            <br/>
-            <div className="chip">
-              {this.state.singlePost.type}
-            </div>
-            <br/>
-            {this.state.commentsJSX ? <div> <span className="card-title">Comments:</span>
-              <span> {this.state.commentsJSX} </span>
-            </div>
-             : null }
-            
+                <br/><br/>
+                <p className="cart-author">
+                  {this.state.singlePost.user_name}
+                </p>
+              </div>
+              <br/>
+              <div className="chip">
+                {this.state.singlePost.type}
+              </div>
+              <br/>
+              {this.state.commentsJSX ? <div> <span className="card-title">Comments:</span>
+                <span> {this.state.commentsJSX} </span>
+              </div>
+                : null }
             
             {/* Modal Content */}
             <div className="button-wrap">
-            <Modal
-              header='Input your comment:'
-              trigger={<Button className="single-post">
+
+              <Modal
+                header='Input your comment:'
+                trigger={<Button className="single-post">
                     <Icon>comment</Icon>
                   </Button>}>
+
               <form>
-              <textarea name="body" id="textarea1" className="materialize-textarea input-field"></textarea>
-              <label>Input comment:</label>
+                <textarea name="body" id="textarea1" className="materialize-textarea input-field"></textarea>
+                <label>Input comment:</label>
               </form>
+
               </Modal>  
               <Link to='/home'>
                 <Button className="single-post">
-                  <Icon>close</Icon>
+                  <Icon>arrow_back</Icon>
                 </Button>
               </Link>
             </div>

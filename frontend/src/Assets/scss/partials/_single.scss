@@ -17,17 +17,27 @@
 .card-content{
   background-color: white;
   width: 100%;
+  .material-icons{
+    color: $secondary-color;
+    display: inline;
+  }
 }
 
-.material-icons{
-  color: $terciary-color;
-}
-.material-icons:hover{
-  color: $terciary-hover;
+
+.header{
+  display: flex;
+  justify-content: left;
+  padding: 2%;
 }
 
 .chip{
   margin: 2%;
+  .material-icons{
+    margin:3px 2px;
+    color: $background-light;
+  }:hover{
+    color: $background-light;
+  }
 }
 
 .cart-body{
@@ -41,37 +51,34 @@
 }
 
 .cart-author{
-  color: $terciary-color;
+  color: $terciary-color !important;
 }
 
-button.btn.single-post{
-  background-color: rgba(255, 255, 255, 0);
-  .btn, .btn-large {
-    text-decoration: none;
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0);
-    text-align: center;
-    letter-spacing: .5px;
-    transition: .2s ease-out;
-    cursor: pointer;
-  }
-  .btn i{
-    color: $primary-color;
+
+.button-wrap .btn-large{
+  background-color: $secondary-color;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
+  .material-icons{
+    color: $background-light;
   }
 }
 
-button.btn.single-post:hover{
-  .btn, .btn-large, i {
+
+.button-wrap .btn, .button-wrap .btn-large:hover{
     text-decoration: none;
     color: #fff;
-    background-color: $terciary-hover;
+    background-color: $secondary-hover;
     text-align: center;
     letter-spacing: .5px;
     transition: .2s ease-out;
     cursor: pointer;
     color: white;
   }
-}
+
 
 .button-wrap{
   border-top: 1px solid $light-grey;
@@ -84,5 +91,5 @@ button.btn.single-post:hover{
   font-size: 17px;
   border-top: 1px solid $light-grey;
   justify-content: space-evenly;
-  padding: 1%;
+  padding: 2%;
 }

@@ -33,7 +33,7 @@ router.post('/add', (req, res) => {
     body: faker.lorem.paragraph(),
     date: new Date(),
     vote:0,
-    type: "Code"
+    type: "Work"
   }, (post) => {
     console.log(post)
     Wonder.getAllPosts((posts) => {
